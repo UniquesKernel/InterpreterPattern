@@ -1,0 +1,7 @@
+Interpreter/*.vs
+Interpreter/bin
+Interpreter/obj
+InterpreterLibrary/bin
+InterpreterLibrary/obj
+InterpreterLibraryTest/bin
+InterpreterLibraryTest/obj
