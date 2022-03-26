@@ -1,0 +1,23 @@
+\section{The Semantics}
+The language implemented in this report is a short and simple language
+that contains only one kind of terminal expression and four operators
+for doing mathematical operations $+$, $-$, $*$, and $/$.
+
+\begin{itemize}
+  \item Numbers
+  \item $+$ \textbar{} $-$ \textbar{} $*$ \textbar{} $/$
+\end{itemize}
+
+\noindent The language follow three simple rules and eliminates ambiguity
+in a simple way. 
+
+\begin{enumerate}
+  \item All terminal expressions evaluate to themselves.
+  \item All expressions are evaluated left to right
+  \item All operators are applied to the two preceding expressions i.e.\\
+    $<$Expression$>$ $<$Expression$>$ $<Op>$
+\end{enumerate}
+
+These rules ensures clearity in the evaluation of all expressions unlike the
+example shown in \autoref{fig:AST_Ambiguity}.
+
