@@ -4,7 +4,7 @@ namespace Interpreter;
 
 public class program
 {
-  public static void Main()
+ public static void Main()
   {
     Parser parser = new Parser();
 
