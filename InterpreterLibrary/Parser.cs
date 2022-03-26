@@ -17,30 +17,17 @@ public class Parser
       switch (token)
       {
         case "+":
-          left = que.Dequeue();
-          right = que.Dequeue();
-          result = new Plus(left, right);
-          que.Enqueue(result);
+          PerformAddition(ref que);
           break;
         case "-":
-          left = que.Dequeue();
-          right = que.Dequeue();
-          result = new Minus(left, right);
-          que.Enqueue(result);
+          PerformSubtraction(ref que);
           break; 
         case "*":
-          left = que.Dequeue();
-          right = que.Dequeue();
-          result = new Times(left, right);
-          que.Enqueue(result);
+          PerformMultiplication(ref que);
           break;
         case "/":
-          left = que.Dequeue();
-          right = que.Dequeue();
-          result = new Div(left, right);
-          que.Enqueue(result);
+          PerformDivision(ref que);
           break; 
-
         default:
           IntegerExpression Exp = new IntegerExpression(token);
           que.Enqueue(Exp);
@@ -57,5 +44,29 @@ public class Parser
     {
       return e.Message;
     }
+  }
+
+  private void PerformAddition(ref Queue<IExpression> que)
+  {
+    IExpression result = new Plus(que.Dequeue(), que.Dequeue());
+    que.Enqueue(result);
+  }
+
+  private void PerformSubtraction(ref Queue<IExpression> que)
+  {
+    IExpression result = new Minus(que.Dequeue(), que.Dequeue());
+    que.Enqueue(result);
+  }
+
+  private void PerformMultiplication(ref Queue<IExpression> que)
+  {
+    IExpression result = new Times(que.Dequeue(), que.Dequeue());
+    que.Enqueue(result);
+  }
+
+  private void PerformDivision(ref Queue<IExpression> que)
+  {
+    IExpression result = new Div(que.Dequeue(), que.Dequeue());
+    que.Enqueue(result);
   }
 }
