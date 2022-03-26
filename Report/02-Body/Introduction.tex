@@ -4,30 +4,8 @@ programming. This report delves into the interpreter pattern, in great details,
 as it ordains to elucidate when the pattern is useful, what it's stucture and
 dynamics are, and the consequences associated with it.
 
-\subsection{The Interpreter Pattern}
-The interpreter pattern is unique among all the different design patterns.
-Its purpose is to define the grammar of a language, be it general or domain
-specific. 
+\input{02-Body/TheInterpreterPattern.tex}
 
-An example of a domain specific language could be a database language like
-SQL. The interpreter pattern is useful in defining the expressions in the 
-SQL language and it tells us how to evaluate those expressions.
-
-A second example; a general language could a language like C++. The interpreter
-pattern is useful in defining the syntax of the c++ language and how each expression
-in that language should be evaluated. Most compilers and interpreters use this 
-pattern to achieve exactly this.
-
-The implementation described in this paper takes cognizance of a simpler and 
-more specific language related to basic mathematical operations, addition,
-subtraction, multiplication, and division. It restric the use of the operations
-further to positive intergers, but does allow negative results.
-
-To comprehend the interpreter pattern two thing must first be understood, Expressions
-and Abstract Syntax Trees henceforth denoted AST.
-
-\subsection{Expressions}
-
-
+\input{02-Body/Expression.tex}
 
 \newpage
