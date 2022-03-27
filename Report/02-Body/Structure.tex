@@ -1,0 +1,37 @@
+\section{Structure of the Interpreter Pattern}
+
+The structure of the interpreter pattern is every simple.
+Its starts out defining an abstract expression class, from which
+two other abstract classes, the terminal expression class and non-terminal
+expression class inherites the interpret method.
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+
+    \umlclass[type=abstract, x = -5]{Context}{}{}
+    \umlclass[type=abstract]{Expression}
+    {Interpret(Context context)}{}
+   
+    \umlclass[type=abstract, x = -3, y = -3]{Terminal Expression}
+    {Interpret(Context context)}{}
+
+    \umlclass[type=abstract, x = 3, y = -3]{Non-Terminal Expression}
+    {Interpret(Context context)}{}
+
+    \umluniassoc[thick]{Context}{Expression}
+    \umlinherit[thick, geometry=-|]{Terminal Expression}{Expression}
+    \umlinherit[thick, geometry=-|]{Non-Terminal Expression}{Expression}
+
+  \end{tikzpicture}
+  \caption{The basic structure of the interpreter pattern}%
+  \label{fig:basic_interpreter_structure}
+\end{figure}
+
+\noindent Notice the Context class, which so far has not been mentioned. The simple
+language implemented in this paper does not use variables, this is 
+where the context would come in. It is used to define a relationship between
+variables and values, so through this one could declare that the variable
+$ x = 10 $. It can often take the form of a Map or Stack data structure, but
+since it is not used in this implementation, it is mentioned only for the sake
+of completion.

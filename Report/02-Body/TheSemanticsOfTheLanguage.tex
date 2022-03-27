@@ -19,5 +19,26 @@ in a simple way.
 \end{enumerate}
 
 These rules ensures clearity in the evaluation of all expressions unlike the
-example shown in \autoref{fig:AST_Ambiguity}.
+example shown in \autoref{fig:AST_Ambiguity}. According to the simple language
+defined above, the previous example would not be written as $ 4 * 5 + 2 $
+but instead be written as $ 4\ 5\ *\ 2\ + $. The expression can then be represented 
+by its own AST as seen in \autoref{fig:Non_Ambigous_AST}
 
+\begin{figure}[h]
+  \centering
+  \tikzstyle{ASTNode} = [draw, circle]
+  \begin{tikzpicture}[node distance = 1cm, edge/.style={link}]
+    \node[ASTNode] (root) {$+$};
+    \node[ASTNode] (left) [below left = of root] {$*$} edge (root);
+    \node[ASTNode] (right) [below right = of root] {$2$} edge (root);
+    \node[ASTNode] (left-left) [below left = of left] {$4$} edge (left);
+    \node[ASTNode] (left-right) [below right = of left] {$5$} edge (left);
+  \end{tikzpicture}
+  \caption{AST for simple language with no ambiguity}%
+  \label{fig:Non_Ambigous_AST}
+\end{figure}
+
+Note, because of rule 2 listed above there is no worry about ambiguity. The 
+expression above can therefore only evaluate to 22.
+
+\newpage
