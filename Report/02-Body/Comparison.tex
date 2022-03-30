@@ -1,0 +1,33 @@
+\section{Comparison}
+The closest resemblance of two design patterns are the interpreter pattern, as described above, and
+the composite pattern. The Interpreter Pattern is a behavioral pattern, while the composite pattern
+is a structural pattern.
+
+The Composite Pattern is designed to compose different objects into a composite object. Objects
+and composite objects can then be composed into a component. The goal of this pattern is to
+enable this collection of objects to be treated as a singular instance.
+The objects and composite objects are formed into a tree structure, much like the 
+AST structure mentioned in earlier sections.
+
+The composite design is achieved through a component interface, which the objects
+implement directly, which the composite objects forward any function call to their 
+child objects.
+
+This is very much akin to what the interpreter pattern does, but with one explicite detail
+that differenciate the two patterns in a fundamental level and make them two different designs. \\
+
+Each leaf (object) in a component object can implement methods inherited from different classes
+and interfaces, that makes the leaf able to operate as its own instance as well as part
+of the component instance.
+
+In the interpreter pattern, a Terminal or Non-Terminal Expression only carries its interpretation
+i.e\@. they only carry the information has to the behaviour associated with their representation.
+
+\subsection{conclusion}
+The composite pattern is a way of organizing classes into a hierachy that can be treate as 
+a singular instance. This is a good way to join to seperately implemented libraries together
+into a new library. The interpreter pattern is a way of organizing behavior into a language
+that can be understood by software i.e\@. a way to writer compilers that implement new 
+programming languages.
+
+\newpage

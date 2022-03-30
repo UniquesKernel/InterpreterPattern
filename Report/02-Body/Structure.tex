@@ -35,3 +35,55 @@ variables and values, so through this one could declare that the variable
 $ x = 10 $. It can often take the form of a Map or Stack data structure, but
 since it is not used in this implementation, it is mentioned only for the sake
 of completion.
+
+\newpage
+
+\subsection{Structure of implementation}
+In the specific implementation, presented in this paper, the structure is
+expanded to include the implemented derivatives of the terminal and non-terminal
+branches as seen in \autoref{fig:implmented_structure}
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[]
+
+    \umlclass[type=interface]{Expression}
+    {Interpret()}{}
+   
+    \umlclass[type=abstract, x = -3, y = -3]{Terminal Expression}
+    {Interpret()}{}
+
+    \umlclass[type=abstract, x = 3, y = -3]{BinaryOperator Expression}
+    {Interpret()}{}
+    \umlclass[type=abstract, x = -4, y = -7]{Integer Expression}
+    {Interpret()}{}
+    \umlclass[type=abstract, x = 0, y = -7]{Plus Expression}
+    {Interpret()}{}
+    \umlclass[type=abstract, x = 6, y = -7]{Minus Expression}
+    {Interpret()}{}
+    \umlclass[type=abstract, x = 0, y = -10]{Div Expression}
+    {Interpret()}{}
+    \umlclass[type=abstract, x = 6, y = -10]{Multiplication Expression}
+    {Interpret()}{}
+
+    \umlimpl[thick, geometry=-|]{Terminal Expression}{Expression}
+    \umlimpl[thick, geometry=-|]{Non-Terminal Expression}{Expression}
+    \umlimpl[thick, geometry=-|]{Integer Expression}{Terminal Expression}
+    \umlimpl[thick, geometry=-|]{Plus Expression}{BinaryOperator Expression}
+    \umlimpl[thick, geometry=-|]{Minus Expression}{BinaryOperator Expression}
+    \umlimpl[thick, geometry=-|]{Div Expression}{BinaryOperator Expression}
+    \umlimpl[thick, geometry=-|]{Multiplication Expression}{BinaryOperator Expression}
+  
+  \end{tikzpicture}
+  \caption{Stucture of the implementation}%
+  \label{fig:implmented_structure}
+\end{figure}
+
+\noindent
+As can be seen in the implentation structure the the Non-Terminal Expression is replaced by a Binary 
+Operator Expression. In this case a practical solution, but if other operators existed, this might
+not be the best way to implement the interpreter pattern as their might be many different non-terminal
+expressions. Though the Terminal expression could have been removed as well it serves well to remember
+that, maybe terminal expression, like variables could be implemented, by keeping the abstraction in place.
+
+\newpage
